@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy 20th Birthday My Love 💙</title>
+
+<style>
+/* ---------------- GLOBAL ---------------- */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+
+body{
+    background: linear-gradient(135deg,#4A90E2,#87CEEB);
+    color:white;
+    overflow-x:hidden;
+}
+
+section{
+    padding:60px 15px;
+    text-align:center;
+}
+
+h1{font-size:2.5rem;margin-bottom:20px}
+h2{margin-bottom:20px}
+p{max-width:700px;margin:auto;font-size:1.1rem;line-height:1.6}
+
+/* ---------------- MOBILE RESPONSIVE ---------------- */
+@media(max-width:600px){
+    h1{font-size:1.8rem}
+    h2{font-size:1.3rem}
+    p{font-size:1rem}
+    .gallery img{width:120px}
+}
+
+/* ---------------- PASSWORD SCREEN ---------------- */
+#passwordScreen{
+    position:fixed;
+    inset:0;
+    background:linear-gradient(135deg,#4A90E2,#1E3C72);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+}
+
+input{
+    padding:12px 15px;
+    border:none;
+    border-radius:8px;
+    margin-top:15px;
+    font-size:1rem;
+}
+
+button{
+    padding:12px 20px;
+    border:none;
+    border-radius:8px;
+    margin-top:10px;
+    background:white;
+    color:#1E3C72;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* ---------------- HERO ---------------- */
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.glow{text-shadow:0 0 15px rgba(255,255,255,0.9)}
+
+/* ---------------- TYPING TEXT ---------------- */
+.typing{
+    border-right:3px solid white;
+    white-space:nowrap;
+    overflow:hidden;
+    animation:typing 4s steps(40,end), blink .8s infinite;
+}
+
+@keyframes typing{
+    from{width:0}
+    to{width:100%}
+}
+
+@keyframes blink{
+    50%{border-color:transparent}
+}
+
+/* ---------------- HEART ANIMATION ---------------- */
+.heart{
+    position:fixed;
+    bottom:-20px;
+    font-size:20px;
+    animation:float 8s linear infinite;
+}
+
+@keyframes float{
+    0%{transform:translateY(0) scale(1);opacity:1}
+    100%{transform:translateY(-110vh) scale(1.5);opacity:0}
+}
+
+/* ---------------- CARD ---------------- */
+.card{
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(10px);
+    padding:30px;
+    border-radius:20px;
+    margin:20px auto;
+    max-width:600px;
+}
+
+/* ---------------- GALLERY ---------------- */
+.gallery img{
+    width:200px;
+    margin:10px;
+    border-radius:15px;
+    transition:0.4s;
+}
+.gallery img:hover{transform:scale(1.1)}
+
+/* ---------------- PROPOSAL POPUP ---------------- */
+#proposalPopup{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.8);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    visibility:hidden;
+    opacity:0;
+    transition:0.4s;
+}
+
+.popupBox{
+    background:white;
+    color:#1E3C72;
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+    max-width:350px;
+}
+
+.showPopup{
+    visibility:visible !important;
+    opacity:1 !important;
+}
+
+/* ---------------- FOOTER ---------------- */
+footer{
+    padding:40px;
+    font-size:0.9rem;
+    opacity:0.8;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- PASSWORD LOCK -->
+<div id="passwordScreen">
+    <h1> Private Love Space 💙</h1>
+    <p>Enter the secret password Dii</p>
+    <input type="password" id="passwordInput" placeholder="Password">
+    <button onclick="checkPassword()">Enter</button>
+</div>
+
+<!-- MUSIC (ADD YOUR SONG FILE HERE) -->
+<!-- Put potta-pulla.mp3 in same folder as this file -->
+<audio id="bgMusic" loop>
+    <source src="song.mp3" type="audio/mp3">
+</audio>
+
+<!-- HERO -->
+<section class="hero">
+    <h1 class="glow">Oiii Thangapulliyoooooo 💙</h1>
+    <p class="typing">You are my happiness, my peace, my forever... </p>
+</section>
+
+<!-- LOVE STORY -->
+<section>
+    <div class="card">
+        <h2>Our 2 Year Love Journey</h2>
+        <p>Two years, thousands of memories, countless smiles… and one forever love that still feels like the first heartbeat.</p>
+    </div>
+</section>
+
+<!-- LOVE LETTER -->
+<section>
+    <div class="card">
+        <h2>My Heart To You</h2>
+        <p>
+            From the moment you entered my life, everything became more meaningful.
+            Your smile is my peace, your voice is my comfort, and your love is my strength.
+        </p>
+    </div>
+</section>
+
+<!-- PROPOSAL BUTTON -->
+<section>
+    <button onclick="openProposal()">Click For Surprise 💍</button>
+</section>
+
+<!-- PHOTO GALLERY -->
+<section>
+    <h2>Our Memories</h2>
+    <div class="gallery">
+        <img src="ph1.jpg">
+        <img src="ph2.jpg">
+        <img src="ph3.jpg">
+        <img src="ph4.jpg">
+        <img src="ph5.jpg">
+        <img src="ph6.jpg">
+    </div>
+</section>
+
+<footer>Made with endless love 💙</footer>
+
+<!-- PROPOSAL POPUP -->
+<div id="proposalPopup">
+    <div class="popupBox">
+        <h2>My Forever Question ❤️</h2>
+        <p>Will you stay with me forever?</p>
+        <button onclick="closeProposal()">YES 💙</button>
+    </div>
+</div>
+
+<script>
+
+/* PASSWORD */
+function checkPassword(){
+    const correctPassword="SORRY";
+    const entered=document.getElementById("passwordInput").value;
+    
+    if(entered===correctPassword){
+        document.getElementById("passwordScreen").style.display="none";
+        document.getElementById("bgMusic").play();
+        startHearts();
+    }else{
+        alert("Wrong password ❤️ try again");
+    }
+}
+
+/* HEARTS */
+function startHearts(){
+    setInterval(()=>{
+        const heart=document.createElement("div");
+        heart.className="heart";
+        heart.innerHTML="💙";
+        heart.style.left=Math.random()*100+"vw";
+        heart.style.fontSize=(Math.random()*20+15)+"px";
+        document.body.appendChild(heart);
+        setTimeout(()=>heart.remove(),8000);
+    },300);
+}
+
+/* PROPOSAL POPUP */
+function openProposal(){
+    document.getElementById("proposalPopup").classList.add("showPopup");
+}
+
+function closeProposal(){
+    document.getElementById("proposalPopup").classList.remove("showPopup");
+}
+
+</script>
+
+</body>
+</html>
